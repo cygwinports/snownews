@@ -1,0 +1,6 @@
+category: Web
+requires: cygwin libiconv2 libintl8 libncurses8 libxml2 zlib
+sdesc: "Console RSS news reader"
+ldesc: "Snownews is a text mode RSS/RDF newsreader. It supports RSS 1.0 
+feeds that comply with the W3C RDF specification and also supports 
+Radio Userland's RSS 0.91 and 2.0 versions."
