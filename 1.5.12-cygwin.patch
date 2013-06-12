@@ -1,0 +1,12 @@
+Our libiconv doesn't need this anymore
+
+--- origsrc/snownews-1.5.12/configure	2013-06-11 19:34:00.152463500 -0500
++++ src/snownews-1.5.12/configure	2013-06-11 19:34:32.624320700 -0500
+@@ -36,7 +36,6 @@ if (lc($os) eq "linux") {
+ 	$ldflags .= ' -liconv';
+ } elsif (lc($os) =~ /cygwin/) {
+ 	print "Configuring for a Cygwin system... ";
+-	$cflags = $cflags.' -DSTATIC_CONST_ICONV -I/usr/include/libxml2';
+ 	if ($use_nls == 1) {
+ 		$ldflags .= ' -lintl ';
+ 	}

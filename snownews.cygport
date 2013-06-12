@@ -1,0 +1,26 @@
+NAME="snownews"
+VERSION=1.5.12
+RELEASE=1
+CATEGORY="Web"
+SUMMARY="Console RSS news reader"
+DESCRIPTION="Snownews is a text mode RSS/RDF newsreader. It supports all
+versions of RSS natively and supports other formats via plugins."
+HOMEPAGE="http://kiza.kcore.de/software/snownews/"
+SRC_URI="http://kiza.kcore.de/software/snownews/download/snownews-${VERSION}.tar.gz
+         http://kiza.kcore.de/software/snownews/download/snownews-${VERSION}.tar.gz.asc"
+PATCH_URI="
+	http://pkgs.fedoraproject.org/cgit/snownews.git/plain/snownews-1.5.10-nocheck.patch
+	http://pkgs.fedoraproject.org/cgit/snownews.git/plain/snownews-1.5.10-nostrip.patch
+	http://pkgs.fedoraproject.org/cgit/snownews.git/plain/snownews-1.5.12-manpage.patch
+	http://pkgs.fedoraproject.org/cgit/snownews.git/plain/snownews-1.5.12-ncursesw.patch
+	1.5.12-cygwin.patch
+"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	./configure --prefix=/usr || error "configure failed"
+	cygmake -j1 EXTRA_CFLAGS="${CFLAGS} -I/usr/include/ncursesw"
+}
+
+DOCS="README.*"
